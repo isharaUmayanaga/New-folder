@@ -174,6 +174,7 @@ const HomePage = () => {
 
   const pastEvents = [
     {
+      image:event2,
       title: "Event name",
       date: "Jan 25, 2025",
       description: [
@@ -181,9 +182,9 @@ const HomePage = () => {
         "sit amet consectetur. A congue faucibus adipiscing non laoreet tristique praesent in.Lorem ipsum dolor sit amet consectetur.",
         "A congue faucibus adipiscing non laoreet tristique praesent in."
       ],
-      image:event1
+      
     },
-    {
+    { image: event2,
       title: "Event name",
       date: "Jan 25, 2025",
       description: [
@@ -191,7 +192,7 @@ const HomePage = () => {
         "sit amet consectetur. A congue faucibus adipiscing non laoreet tristique praesent in.Lorem ipsum dolor sit amet consectetur.",
         "A congue faucibus adipiscing non laoreet tristique praesent in."
       ],
-      image: event2
+     
     }
   ];
 
@@ -290,7 +291,7 @@ const HomePage = () => {
           
             <img src={portfolioImage1} alt={portfolioWorks[0].title} />
             <a href={portfolioWorks[0].link} className="arrow-btn">
-                  <span className='arrow'>→</span>
+                  <span className='portfolio-arrow'>→</span>
                 </a>
               <div className="portfolio-content">
                 <h3>{portfolioWorks[0].title}</h3>
@@ -304,7 +305,7 @@ const HomePage = () => {
               <div key={index} className="portfolio-card">
                 <img src={work.image} alt={work.title} />
                 <a href={work.link} className="arrow-btn">
-                    <span className='arrow'>→</span>
+                    <span className='portfolio-arrow'>→</span>
                   </a>
                 <div className="portfolio-content">
                   <h3>{work.title}</h3>
@@ -342,7 +343,7 @@ const HomePage = () => {
                   </div>
                 </div>
                 <button className="news-arrow-btn" aria-label="Read more">
-                  <span className='arrow'>→</span>
+                  <span className='news-arrow'>→</span>
                 </button>
               </div>
             </article>
@@ -379,33 +380,35 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Past Events Section */}
-      <section className="past-events">
-        <h2>Events Just Passed</h2>
-        <div className="events-container">
-          {pastEvents.map((event, index) => (
-            <div key={index} className="event-card">
-              <div className="event-image">
-                <img src={event.image} alt={event.title} />
-              </div>
-              <div className="event-content">
-                <div className="event-details">
-                  <h3>{event.title}</h3>
-                  <span className="event-date">{event.date}</span>
-                  <div className="event-description">
-                    {event.description.map((paragraph, idx) => (
-                      <p key={idx}>{paragraph}</p>
-                    ))}
-                  </div>
-                </div>
-                <button className="event-arrow-btn" aria-label="View event details">
-                  <span>→</span>
-                </button>
+     {/* Past Events Section */}
+<section className="past-events">
+  <h2>Events Just Passed</h2>
+  <div className="events-container">
+    {pastEvents.map((event, index) => (
+      <div key={index} className="event-item">
+        <div className="event-image">
+          <img src={event.image} alt={event.title} />
+        </div>
+        <div className="event-card">
+          <div className="event-content">
+            <div className="event-details">
+              <h3>{event.title}</h3>
+              <span className="event-date">{event.date}</span>
+              <div className="event-description">
+                {event.description.map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
               </div>
             </div>
-          ))}
+            <button className="event-arrow-btn" aria-label="View event details">
+              <span className='event-arrow'>→</span>
+            </button>
+          </div>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
 
       <Footer />
     </div>
